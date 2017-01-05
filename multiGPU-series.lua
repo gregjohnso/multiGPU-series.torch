@@ -63,10 +63,12 @@ optStates = {}
 local function feval()
     net:zeroGradParameters()
     
+    -- generate some data
     local x = torch.CudaTensor(batchSize, inSize):rand(batchSize, inSize)
     local y = x:clone()
+    
     local yHat = net:forward(x)
-
+    
     local loss = criterion:forward(yHat, y)
 
     local lossGrad = criterion:backward(yHat, y)
