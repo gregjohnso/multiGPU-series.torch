@@ -1,0 +1,1 @@
+This is a demo to illustrate how a model can be trained with the 'optim' package while using a single network that is distrubted across multiple GPUs in serial. This is useful when your GPU does not have enough memory to store and train a single model. 
