@@ -93,10 +93,10 @@ local function optim_step(net, loss, optParam, optStates)
         local theta, gradTheta = net.modules[i]:parameters()
         
         for j = 1,#theta do
-            thisparam = theta[j]
+            local thisparam = theta[j]
             thisgrad = gradTheta[j]
             
-            optState = optStates[c] or {}
+            local optState = optStates[c] or {}
             optim[optParam.optimizer](feval_dummy, thisparam, optParam, optState)
             optStates[c] = optState
             c = c+1
